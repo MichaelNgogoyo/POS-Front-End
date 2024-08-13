@@ -1,5 +1,7 @@
+import {directus} from './config/directus'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    directus,
     runtimeConfig: {
         directusUrl: process.env.DIRECTUS_REST_BASE_URL,
         directusStatic: process.env.DIRECTUS_WEB_TOKEN,
@@ -16,7 +18,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
     css: ['~/assets/css/main.css'],
-    modules: ['@nuxtjs/tailwindcss', "nuxt-directus"],
+    modules: ['@nuxtjs/tailwindcss'],
     postcss: {
         plugins: {
             tailwindcss: {},

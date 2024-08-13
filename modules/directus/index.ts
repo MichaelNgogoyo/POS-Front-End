@@ -17,7 +17,7 @@ const log = useLogger();
 
 export default defineNuxtModule({
 	meta: {
-		name: 'agencyos-nuxt-directus',
+		name: 'POS-nuxt-directus',
 		configKey: 'directus',
 		compatibility: {
 			nuxt: '^3.0.0',
@@ -44,7 +44,6 @@ export default defineNuxtModule({
 
 	async setup(moduleOptions, nuxt) {
 		log.start('Loading Directus Module');
-
 		if (!moduleOptions.rest.baseUrl) {
 			log.warn(`Please make sure to set Directus baseUrl`);
 		}
@@ -156,10 +155,8 @@ export default defineNuxtModule({
 		const composables = resolve(runtimeDir, 'composables');
 		addImportsDir(composables);
 
-
-
 		// Add title template to the app head for use with useHead composable
-		nuxt.options.app.head.titleTemplate = `%s - Rintelex`;
+		nuxt.options.app.head.titleTemplate = `%s - POS`;
 
 		log.success(`Directus Module Loaded`);
 	},

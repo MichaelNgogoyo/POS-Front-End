@@ -6,8 +6,8 @@ export default async function useDirectus<Output extends object>(
 	//@ts-ignore
 	options: RestCommand<Output, DirectusSchema>,
 ): Promise<Output> {
+	console.log("helloo-------------------------------------")
 	const nuxtApp = useNuxtApp();
 	const $directus = nuxtApp.$directus as RestClient<Schema>;
-	console.log("helloo-------------------------------------")
 	return await $directus.request<Output>(options);
 }

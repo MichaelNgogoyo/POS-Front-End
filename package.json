@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@directus/sdk": "^17.0.0",
+    "jwt-decode": "^4.0.0",
     "nuxt": "^3.12.4",
-    "nuxt-directus": "^5.6.1",
     "vue": "latest"
   },
   "devDependencies": {

@@ -1,12 +1,13 @@
 <template>
-  {{ data }}
+  {{ records }}
 </template>
 
 <script setup>
-  const {$directus, $readItems } = useNuxtApp()
+import {readItems} from '@directus/sdk'
 
-  const {data} = await useAsyncData('global', () =>{
-    return $directus.request($readItems('global'))
-  })
+const records = ref([])
+ useDirectus(readItems('event_facilitators'))
+     .then((data) => records.value = data)
+
 </script>
 

@@ -11,14 +11,14 @@ import {
 	useRoute,
 	useNuxtApp,
 } from '#imports';
+import {refreshNuxtData, useCookie} from "nuxt/app";
 
 export default defineNuxtPlugin((nuxtApp) => {
-	console.log("helloo-------------------------------------")
 	const route = useRoute();
 	const config = useRuntimeConfig();
 
 
-	const directusUrl = config.public.directusUrl as string;
+	const directusUrl = config.public.directus.rest.baseUrl as string;
 
 	const { isTokenExpired } = useDirectusAuth();
 
@@ -45,7 +45,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 			rest({
 				onRequest: async (request) => {
 					const userToken = await directus.getToken();
-
 					return request;
 				},
 			}),
@@ -62,7 +61,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 		nuxtApp.hook('page:finish', () => {
 			refreshNuxtData();
-
 		});
 	}
 
