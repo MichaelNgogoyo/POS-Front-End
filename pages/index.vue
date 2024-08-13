@@ -6,7 +6,7 @@
 import {readItems} from '@directus/sdk'
 
 const records = ref([])
- useDirectus(readItems('event_facilitators'))
+ useDirectus(readItems('global'))
      .then((data) => records.value = data)
 
 </script>
