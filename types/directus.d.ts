@@ -1,0 +1,48 @@
+import { CustomDirectusTypes } from './types'
+
+type DirectusTypes =
+  | 'directus_activity'
+  | 'directus_collections'
+  | 'directus_dashboards'
+  | 'directus_fields'
+  | 'directus_files'
+  | 'directus_flows'
+  | 'directus_folders'
+  | 'directus_migrations'
+  | 'directus_notifications'
+  | 'directus_operations'
+  | 'directus_panels'
+  | 'directus_permissions'
+  | 'directus_presets'
+  | 'directus_relations'
+  | 'directus_revisions'
+  | 'directus_roles'
+  | 'directus_sessions'
+  | 'directus_settings'
+  | 'directus_shares'
+  | 'directus_translations'
+  | 'directus_users'
+  | 'directus_webhooks'
+  | 'units'
+  | 'Association'
+  | 'documents'
+  | 'junction_directus_users_Association'
+  | 'notices'
+  | 'units_general_registers'
+  | 'document_categories'
+  | 'declaration_of_co_ownership'
+  | 'insurance_policies'
+  | 'agm_meetings'
+  | 'daily_syndicate_records'
+  | 'maintenance_logs'
+  | 'maintenance_log_entries'
+  | 'association_invitations'
+  | 'offers'
+  | 'mailing_list'
+  | 'contact_information'
+
+declare global {
+  interface DirectusSchema extends Omit<CustomDirectusTypes, DirectusTypes> {}
+}
+
+export {}
