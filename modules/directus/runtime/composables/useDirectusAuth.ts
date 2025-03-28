@@ -33,7 +33,7 @@ export default function useDirectusAuth<DirectusSchema extends object>() {
     const response = await $directus.login(email, password)
 
     const returnPath = route.query.redirect?.toString()
-    const redirect = returnPath ? returnPath : '/dashboard'
+    const redirect = returnPath ? returnPath : '/'
 
     _loggedIn.set(true)
 
@@ -51,7 +51,7 @@ export default function useDirectusAuth<DirectusSchema extends object>() {
     user.value = null
 
     await clearNuxtData()
-    await navigateTo(config.public?.directus?.auth?.redirect?.login || '/auth/login')
+    await navigateTo(config.public?.directus?.auth?.redirect?.login || '/login')
   }
 
   async function fetchUser(params?: object) {

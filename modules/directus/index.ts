@@ -33,8 +33,9 @@ export default defineNuxtModule({
 				enableGlobalAuthMiddleware: false,
 				redirect: {
 					home: '/home',
-					login: '/auth/login',
-					logout: '/auth/login',
+					mpesa: '/mpesa',
+					login: '/login',
+					logout: '/login',
 					resetPassword: '/auth/reset-password',
 					callback: '/auth/callback',
 				},

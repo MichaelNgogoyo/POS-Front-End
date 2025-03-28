@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    env_file:
+      - .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  directus:
+    image: directus/directus
+    env_file:
+      - .env
+#      - be in the know the env used is the one named env.example not .env
+    ports:
+      - '8055:8055'
+    depends_on:
+      - postgres
+    volumes:
+      - ./directusdata/database:/directus/database
+      - ./PWD/directusdata/extensions:/directus/extensions
+      - ./PWD/directusdata/uploads:/directus/uploads

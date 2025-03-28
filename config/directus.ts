@@ -6,14 +6,15 @@ export const directus = {
   },
   auth: {
     enabled: true,
-    enableGlobalAuthMiddleware: false, // Enable auth middleware on every page
+    enableGlobalAuthMiddleware: true, // Enable auth middleware on every page
     //@ts-ignore
     userFields: ['*', '*.*', 'associations.Association_id', 'associations.Association_id.*'], // Select user fields
     redirect: {
       callback: '/auth/callback',
-      home: '/dashboard',
-      login: '/auth/login',
-      logout: '/auth/login',
+      home: '/',
+      login: '/login',
+      mpesa: '/mpesa',
+      logout: '/login',
       resetPassword: '/auth/reset-password'
     }
   }
